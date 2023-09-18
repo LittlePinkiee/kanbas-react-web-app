@@ -1,0 +1,205 @@
+<table width="100%">
+    <tr>
+      <td valign="top">
+        <ul>
+            <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
+            <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
+            <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Commons</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </td>
+        <td valign="top">
+            <ul>
+                <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                <li><a href="#">Piazza</a></li>
+                <li><a href="#">Zome Meetings</a></li>
+                <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                <li><a href="#">Quizzes</a></li>
+                <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Panopto Videos</a></li>
+                <li><a href="#">Discussions</a></li>
+                <li><a href="#">Announcements</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Files</a></li>
+                <li><a href="#">Rubrics</a></li>
+                <li><a href="#">Outcomes</a></li>
+                <li><a href="#">Collaborations</a></li>
+                <li><a href="#">Syllabus</a></li>
+                <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
+            </ul>
+      </td>
+      <td valign="top">
+        <ul>
+            <li><a href="/Kanbas/Courses/Settings/CourseDetails/screen.html">Course Details</a></li>
+            <li><a href="/Kanbas/Courses/Settings/CourseNavigation/screen.html">Course Navigation</a></li>
+        </ul>
+      </td>
+      <td valign="top">
+        <h2>Course Details</h2>
+        <table width="100%" border="1">
+            <tr>
+                <th>Image: </th>
+                <td>
+                    <input type="file" id="image-upload" accept="image/*">
+                    <img id="image-display" src="" alt="Selected Image">
+                </td>
+            </tr>
+
+            <tr>
+                <th>Name: </th>
+                <td>
+                    CS5610.17387 Web Development SEC 02 Fall 2023[Online]
+                </td>
+            </tr>
+
+            <tr>
+                <th>Course Code: </th>
+                <td>
+                    CS5610.17387.202410
+                </td>
+            </tr>
+
+            <tr>
+                <th>Course Template: </th>
+                <td>
+                    <label><input type="checkbox" /> Enable course as a Course Template</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Time Zone: </th>
+                <td>
+                    <select>
+                        <option>Eastern	(05:00/4:00)</option>
+                        <option>Central	(06:00/05:00)</option>
+                        <option>Pacific	(08:00/07:00)</option>
+                    </select>                
+                </td>
+            </tr>
+
+            <tr>
+                <th>SIS ID: </th>
+                <td>
+                    CS5610.17387.202410
+                </td>
+            </tr>
+
+            <tr>
+                <th>Term: </th>
+                <td>
+                    Fall 2023 Semester Full Time
+                </td>
+            </tr>
+
+            <tr>
+                <th>Participation: </th>
+                <td>
+                    <label>Term: </label>
+                    <select>
+                        <option>Term</option>
+                    </select>       
+                    <br/><br/>
+                    
+                    <label for="startDate">Start Date</label> <br/>
+                    <input type="date" value="2020-09-16" min="2020-09-04" max="2020-09-23" />
+                    <br/><br/>
+            
+                    <label for="endDate">End Date</label> <br/>
+                    <input type="date" value="2020-09-16" min="2020-09-04" max="2020-09-23" />
+                    <br/><br/>
+                    <label><input type="checkbox" /> Restrict students from viewing course before term start date</label><br/>
+                    <label><input type="checkbox" /> Restrict students from viewing course after term end date</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Format: </th>
+                <td>
+                    <select>
+                        <option>On-Campus</option>
+                        <option>Online</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Description: </th>
+                <td>
+                    <textarea cols="50" rows="5">This is the course details description
+                    </textarea>                
+                </td>
+            </tr>
+
+        </table>
+
+        <!-- <label for="image-upload">Image: </label>
+        <input type="file" id="image-upload" accept="image/*">
+        <img id="image-display" src="" alt="Selected Image"> -->
+        <!-- <br/><br/>
+
+        <label>Name: </label>
+        CS5610.17387 Web Development SEC 02 Fall 2023[Online]
+        <br/><br/>
+
+        <label>Course Code: </label>
+        CS5610.17387.202410
+        <br/><br/>
+
+        <label>Course Template: </label>
+        <label><input type="checkbox" /> Enable course as a Course Template</label>
+        <br/><br/>
+
+        <label>Time Zone: </label>
+        <select>
+        <option>Eastern	(05:00/4:00)</option>
+        <option>Central	(06:00/05:00)</option>
+        <option>Pacific	(08:00/07:00)</option>
+        </select>
+        <br/><br/>
+
+        <label>SIS ID: </label>
+        CS5610.17387.202410
+        <br/><br/>
+
+        <label>Term: </label>
+        Fall 2023 Semester Full Time
+        <br/><br/>
+
+        <label>Participation: </label>
+        <label>Term: </label>
+        <select>
+            <option>Term</option>
+        </select>
+        <br/><br/>
+
+        <label for="startDate">Start Date</label> <br/>
+        <input type="date" value="2020-09-16" min="2020-09-04" max="2020-09-23" />
+        <br/><br/>
+
+        <label for="endDate">End Date</label> <br/>
+        <input type="date" value="2020-09-16" min="2020-09-04" max="2020-09-23" />
+        <br/><br/>
+        <label><input type="checkbox" /> Restrict students from viewing course before term start date</label><br/>
+        <label><input type="checkbox" /> Restrict students from viewing course after term end date</label>
+        <br/><br/>
+
+        <label>Format: </label>
+        <select>
+            <option>On-Campus</option>
+            <option>Online</option>
+        </select>
+        <br/><br/>
+
+        <label>Description: </label>
+        <textarea cols="50" rows="5">This is the course details description
+        </textarea> -->
+      </td>
+    </tr>
+</table>
