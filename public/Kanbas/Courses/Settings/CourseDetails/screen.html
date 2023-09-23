@@ -45,7 +45,7 @@
         <h2>Course Details</h2>
         <table width="100%" border="1">
             <tr>
-                <th>Image: </th>
+                <th style="text-align: left;">Image: </th>
                 <td>
                     <input type="file" id="image-upload" accept="image/*">
                     <img id="image-display" src="" alt="Selected Image">
@@ -53,28 +53,28 @@
             </tr>
 
             <tr>
-                <th>Name: </th>
+                <th style="text-align: left;">Name: </th>
                 <td>
                     CS5610.17387 Web Development SEC 02 Fall 2023[Online]
                 </td>
             </tr>
 
             <tr>
-                <th>Course Code: </th>
+                <th style="text-align: left;">Course Code: </th>
                 <td>
                     CS5610.17387.202410
                 </td>
             </tr>
 
             <tr>
-                <th>Course Template: </th>
+                <th style="text-align: left;">Course Template: </th>
                 <td>
                     <label><input type="checkbox" /> Enable course as a Course Template</label>
                 </td>
             </tr>
 
             <tr>
-                <th>Time Zone: </th>
+                <th style="text-align: left;">Time Zone: </th>
                 <td>
                     <select>
                         <option>Eastern	(05:00/4:00)</option>
@@ -85,21 +85,21 @@
             </tr>
 
             <tr>
-                <th>SIS ID: </th>
+                <th style="text-align: left;">SIS ID: </th>
                 <td>
                     CS5610.17387.202410
                 </td>
             </tr>
 
             <tr>
-                <th>Term: </th>
+                <th style="text-align: left;">Term: </th>
                 <td>
                     Fall 2023 Semester Full Time
                 </td>
             </tr>
 
             <tr>
-                <th>Participation: </th>
+                <th style="text-align: left;">Participation: </th>
                 <td>
                     <label>Term: </label>
                     <select>
@@ -120,7 +120,56 @@
             </tr>
 
             <tr>
-                <th>Format: </th>
+                <th style="text-align: left;">Default due time: </th>
+                <td>
+                    <select>
+                        <option>Account Default(11:59pm)</option>
+                    </select>                
+                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">Language: </th>
+                <td>
+                    <select>
+                        <option>Not-set(use-configurable, default to English)</option>
+                    </select>
+                    <p>This will override any user/system language preferences. This is only recommended for forerign language courses.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">Large Course: </th>
+                <td>
+                    <label><input type="checkbox" />Launch SpeedGrader Filtered by Student Group</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">Grading Scheme: </th>
+                <td>
+                    <label><input type="checkbox" />Enable course grading scheme</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">License: </th>
+                <td>
+                    <select>
+                        <option>Private(Copyrighted)</option>
+                        <option>Shared</option>
+                    </select>                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">File Copyright: </th>
+                <td>
+                    <label><input type="checkbox" />Copyright and license information must be provided for files before they published.</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="text-align: left;">Format: </th>
                 <td>
                     <select>
                         <option>On-Campus</option>
@@ -130,7 +179,15 @@
             </tr>
 
             <tr>
-                <th>Description: </th>
+                <th style="text-align: left;">Mastery Paths: </th>
+                <td>
+                    <label><input type="checkbox" /> Enable individual learning paths for students based on assessment</label>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th style="text-align: left;">Description: </th>
                 <td>
                     <textarea cols="50" rows="5">This is the course details description
                     </textarea>                
