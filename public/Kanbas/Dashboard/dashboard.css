@@ -1,0 +1,51 @@
+#cards-container {
+    max-width: 1100px;
+    /* margin-right: 50px; */
+    column-gap: 20px;
+}
+
+.col {
+    width: 250px;
+    height: 260px;
+    margin-block: 30px;
+
+}
+
+.card {
+    width: 100%;
+}
+
+.card-body a {
+    text-decoration: none;
+    /* color: #E50000; */
+}
+
+.card-body a:hover {
+    text-decoration: underline;
+    /* text-decoration-color: #E50000; */
+}
+
+.card-course-color {
+    background-color: #e074aa;
+    min-height: 130px;
+}
+
+.card-course-title {
+    color: #9231be;
+}
+
+.card-course-number {
+    color: gray;
+}
+
+.card-course-term {
+    color: gray;
+}
+
+.text-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* width: 200px; */
+}
+
