@@ -1,0 +1,28 @@
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* width: 200px; */
+}
+
+.text-light-green {
+    color: #82c190;
+    /* color: white; */
+}
+
+.left-boarder-green {
+    border-left: 3px solid;
+    border-left-color: green;
+}
+
+#courses-sidebar-title{
+    width: 200px;
+}
+
+#editAssignHeaderBreadCrumb{
+    width: 120px;
+}
+
+/* .w-full{
+    width: 100%;
+} */

@@ -1,0 +1,46 @@
+.wd-acct-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 190px;
+    margin: 0px;
+    margin-left: 25px;
+    margin-right: 20px;
+}
+
+.wd-acct-navigation li {
+    padding-left: 10px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.wd-acct-navigation li.wd-active {
+    border-left: 2px solid black;
+    padding-left: 8px;
+}
+
+.wd-acct-navigation li.wd-active a {
+    color: black;
+}
+
+.wd-acct-navigation a {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-account-page-header {
+    margin-left: 30px;
+    margin-top: 20px;
+
+}
+
+.no-underline{
+    text-decoration: none;
+}
+
+.btn-square{
+    border-radius: 0;
+}
