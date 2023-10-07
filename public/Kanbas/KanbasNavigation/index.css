@@ -1,0 +1,49 @@
+.wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    height: 100%;
+    padding: 0px;
+    width: 85px;
+    margin: 0px;
+}
+
+.wd-kanbas-navigation li {
+    padding: 6px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.wd-kanbas-navigation li.wd-active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+#acct-icon .fa-circle-user {
+    color: gray;
+  }
+
+.neu-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .wd-bg-color-black1{
+    background-color: black;
+    width: 80px;
+  } */
