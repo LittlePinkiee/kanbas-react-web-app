@@ -1,0 +1,14 @@
+.course-breadcrumb {
+    --bs-breadcrumb-divider: '>';
+    font-size: 1.3em;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: red;
+    /* font-size: ; */
+}
+
+.w-full{
+    width: 100%;
+}

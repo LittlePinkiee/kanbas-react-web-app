@@ -1,0 +1,13 @@
+/* .bg-test{
+    background-color: blue;
+} */
+
+/* .v-ellipsis {
+    font-size: 1.5em;
+} */
+
+
+.left-boarder-green {
+    border-left: 3px solid;
+    border-left-color: green;
+}

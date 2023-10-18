@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+import KanbasNavigation from "../../KanbasNavigation/kanbasNav.js";
+import CourseNavigation from "../courseNav.js";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses - Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="/Kanbas/KanbasNavigation/index.css" />
-  <link rel="stylesheet" href="/Kanbas/Courses/courseNav.css" />
-</head>
 
-<body>
+function Home() {
 
-  <div id="root"></div>
-  <script type="module">   
-  import Home from "./home.js";
-  const html = Home();
-  const root = document.getElementById("root");
-  root.innerHTML = html;
-  </script>
-  <!-- <div class="d-block d-md-none d-flex flex-row bg-black py-3 justify-content-between h-screen">
+return (`
+  <div class="d-block d-md-none d-flex flex-row bg-black py-3 justify-content-between h-screen">
     <button type="button" class="btn">
       <a href="/Kanbas/KanbasNavigation">
         <i class="fa-solid fa-bars fa-1x me-4 text-white"></i>
@@ -45,97 +28,12 @@
 
 
   <div class="d-flex flex-row">
-    <div class="d-flex flex-column" id="navbar-wrapper">
-      <ul class="wd-kanbas-navigation d-none d-md-block">
-        <li>
-          <a href="/Kanbas/Courses/Home/screen.html"
-            class="neu-logo d-flex align-items-center mb-md-0 text-white text-decoration-none">
-            <img width="85" height="75" src="/Kanbas/images/NEU-logo.png" alt="NEU Logo">
-          </a>
-        </li>
-        <li>
-          <a href="/Kanbas/Account/Profile/screen.html">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-regular fa-circle-user fa-2x text-secondary"></i>
-              </span>
-              <div>Account</div>
-            </div>
-          </a>
-        </li>
-        <li><a href="/Kanbas/Dashboard/screen.html">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-solid fa-gauge-high fa-2x"></i>
-              </span>
-              <div>Dashboard</div>
-            </div>
-          </a></li>
-        <li class="wd-active">
-          <a href="/Kanbas/Courses/Home/screen.html">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-solid fa-book fa-2x"></i>
-              </span>
-              <div>Courses</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-regular fa-calendar-days fa-2x"></i>
-              </span>
-              <div>Calendar</div>
-            </div>
-          </a>
-        </li>
-        <li><a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-solid fa-inbox fa-2x"></i>
-              </span>
-              <div>Inbox</div>
-            </div>
-          </a></li>
-        <li><a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-regular fa-clock fa-2x"></i>
-              </span>
-              <div>History</div>
-            </div>
-          </a></li>
-        <li><a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-solid fa-tv fa-2x"></i>
-              </span>
-              <div>Studio</div>
-            </div>
-          </a></li>
-        <li><a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
-              </span>
-              <div>Commons</div>
-            </div>
-          </a></li>
-        <li><a href="#">
-            <div class="d-flex flex-column align-items-center">
-              <span>
-                <i class="fa-regular fa-circle-question fa-2x"></i>
-              </span>
-              <div>Help</div>
-            </div>
-          </a></li>
-      </ul>
+    <div class="d-flex flex-column d-none d-md-block" id="navbar-wrapper">
+      ${KanbasNavigation()}
     </div>
 
-    <div class="d-flex flex-column p-0 pt-4 pe-5 container-fluid" id="courses-home">
-      <div class="d-flex flex-column ps-4">
+    <div class="d-flex flex-column p-0 pe-5 container-fluid" id="courses-home">
+      <div class="d-flex flex-column ps-4 pt-3">
         <div class="d-flex flex-row align-content-center" id="courses-home-header">
           <i class="solid-bars-icon fa-solid fa-bars text-danger fa-1x pt-1 pe-3" id="course-home-header-icon"></i>
           <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -157,31 +55,11 @@
       
 
       <div class="d-flex flex-row pt-2">
-        <div class="d-flex flex-column" id="course-navbar">
+        <div class="d-flex flex-column d-none d-md-block" id="course-navbar">
           <span class="text-ellipsis text-secondary d-none d-md-block ps-5 pb-2" id="courses-sidebar-title" >
             202410_1 Fall 2023 Semester
           </span>
-          <ul class="list-group wd-course-navigation d-none d-md-block ">
-            <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
-            <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
-            <li><a href="#">Piazza</a></li>
-            <li><a href="#">Zome Meetings</a></li>
-            <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
-            <li><a href="#">Quizzes</a></li>
-            <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Panopto Videos</a></li>
-            <li><a href="#">Discussions</a></li>
-            <li><a href="#">Announcements</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Rubrics</a></li>
-            <li><a href="#">Outcomes</a></li>
-            <li><a href="#">Collaborations</a></li>
-            <li><a href="#">Syllabus</a></li>
-            <li><a href="#">Progress Reports (EAB Navigate)</a></li>
-            <li><a href="/Kanbas/Courses/Settings/CourseDetails/screen.html">Settings</a></li>
-          </ul>
+          ${CourseNavigation("Home")}
         </div>
 
         <div class="container-fluid d-flex flex-row w-full p-0 ps-2">
@@ -229,7 +107,7 @@
               </div>
 
               <div class="d-flex list-group left-boarder-green mb-5">
-                <ul class="list-group">
+                <!-- <ul class="list-group"> -->
                 <div class="list-group p-0">
 
                   <div class="list-group-item ps-2 pe-4 d-flex justify-content-between">
@@ -348,6 +226,14 @@
                     </div>
                   </div>
                 </div>
+                <!-- <li class="list-group-item">
+                    READING
+                    <ul class="list-group">
+                      <li class="list-group-item">Full Stack Developer - Chapter 1 - Introduction</li>
+                      <li class="list-group-item">Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML
+                      </li>
+                    </ul>
+                  </li> -->
                 <div class="list-group p-0">
                   <div class="list-group-item ps-2 pe-4 d-flex justify-content-between">
                     <div class="d-flex">
@@ -428,7 +314,7 @@
               </div>
 
               <div class="d-flex list-group">
-                <ul class="list-group">
+                <!-- <ul class="list-group"> -->
                 <div class="list-group p-0 left-boarder-green mb-5">
 
                   <div class="list-group-item ps-2 pe-4 d-flex justify-content-between">
@@ -684,6 +570,12 @@
                     <a href="#" class="text-secondary">View Course Notifications</a>
                   </div>
                 </div>
+                <!-- <li class="list-group-item"><a href="#">Import From Commons</a></li>
+                <li class="list-group-item"><a href="#">Choose Home Page</a></li>
+                <li class="list-group-item"><a href="#">View Course Stream</a></li>
+                <li class="list-group-item"><a href="#">New Announcements</a></li>
+                <li class="list-group-item"><a href="#">New Analytics</a></li>
+                <li class="list-group-item"><a href="#">View Course Notifications</a></li> -->
               </div>
 
               <div class="d-flex flex-column mb-4">
@@ -751,7 +643,7 @@
         </div>
       </div>
     </div>
-  </div> -->
-</body>
 
-</html>
+`);
+}
+export default Home;
