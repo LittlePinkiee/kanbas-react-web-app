@@ -15,6 +15,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import CourseBreadcrumb from "./Breadcrumb";
+import MobileHomeHeader from "./mobileHomeHeader";
 import "./index.css";
 
 function Courses() {
@@ -28,6 +29,7 @@ function Courses() {
     // <div>
     <div>
       {/* <h1>Courses {course.name} / Home</h1> */}
+      <MobileHomeHeader/>
       <CourseBreadcrumb />
       <CourseNavigation />
 
@@ -35,7 +37,7 @@ function Courses() {
         className="overflow-y-scroll position-fixed bottom-0 end-0"
         style={{
           left: "300px",
-          top: "80px",
+          top: "140px",
         }}
       >
         <Routes>

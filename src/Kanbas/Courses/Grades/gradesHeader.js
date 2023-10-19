@@ -1,6 +1,7 @@
 import React from "react";
 import {FaFileImport, FaFileExport} from "react-icons/fa";
 import {AiFillSetting} from "react-icons/ai";
+import {FaMagnifyingGlass} from "react-icons/fa6";
 
 
 const GradesHeader = () => {
@@ -22,7 +23,7 @@ const GradesHeader = () => {
                 </label>
                 <div class="input-group">
                   <span class="input-group-text bg-transparent">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <FaMagnifyingGlass/>
                   </span>
                   <input type="text" class="form-select" id="studentNames" name="studentNames"
                     placeholder="Search Students"/>
@@ -34,7 +35,7 @@ const GradesHeader = () => {
                 </label>
                 <div class="input-group">
                   <span class="input-group-text bg-transparent">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                  <FaMagnifyingGlass/>
                   </span>
                   <input type="text" class="form-select" id="assignmentNames" name="assignmentNames"
                     placeholder="Search Assignments"/>
