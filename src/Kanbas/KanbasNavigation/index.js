@@ -24,29 +24,36 @@ function KanbasNavigation() {
 
     const { pathname } = useLocation();
     return (
-        <div className="d-flex flex-column d-none d-md-block" id="kanbas-navbar">
-            <ul className="list-group wd-kanbas-navigation">
-                <li>
-                    <a href="/Kanbas/Dashboard"
-                        class="neu-logo d-flex mb-md-0">
-                        <img width="80" height="75" src="/images/NEU-logo.png" alt="NEU Logo"/>
-                    </a>
-                </li>
-                {links.map((link, index) => (
-                    <Link
-                        key={index}
-                        to={`/Kanbas/${link}`}
-                        className={`list-group-item ${pathname.includes(link) && "active"}`}
-                    >
-                        {linkToIconMap[link]}
-                        <br />
-                        {link}
-                    </Link>
-                ))}
-            </ul>
-
-
-        </div>
+      <div
+        className="d-flex flex-column d-none d-md-block h-full"
+        id="kanbas-navbar"
+      >
+        <ul className="list-group wd-kanbas-navigation h-full">
+          <li>
+            <a href="/Kanbas/Dashboard" class="neu-logo d-flex mb-md-0">
+              <img
+                width="80"
+                height="75"
+                src="/images/NEU-logo.png"
+                alt="NEU Logo"
+              />
+            </a>
+          </li>
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              to={`/Kanbas/${link}`}
+              className={`list-group-item ${
+                pathname.includes(link) && "active"
+              }`}
+            >
+              {linkToIconMap[link]}
+              <br />
+              {link}
+            </Link>
+          ))}
+        </ul>
+      </div>
     );
 }
 export default KanbasNavigation;

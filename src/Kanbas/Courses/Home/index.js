@@ -1,5 +1,6 @@
 import ModuleList from "../Modules/ModuleList/moduleList";
 import ModulesHeader from "../Modules/ModulesHeader";
+// import MobileHomeHeader from "../mobileHomeHeader";
 import CourseStatus from "./CourseStatus";
 
 
@@ -8,6 +9,7 @@ function Home() {
     <div className="row">
         <div className="col-8 p-0">
             {/* <h2>Home</h2> */}
+            {/* <MobileHomeHeader/> */}
             <ModulesHeader/>
             <ModuleList />
         </div>

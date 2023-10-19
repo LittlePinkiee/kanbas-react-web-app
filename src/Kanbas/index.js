@@ -4,14 +4,15 @@ import KanbasNavigation from "./KanbasNavigation";
 import Courses from "./Courses";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
+import "./index.css"
 
 function Kanbas() {
   return (
     <>
       <Nav />
-      <div className="d-flex">
-        <div>
-          <KanbasNavigation />
+      <div className="d-flex h-screen">
+        <div className="h-full">
+          <KanbasNavigation className="h-full"/>
         </div>
         <div className="w-full">
           <Routes>
