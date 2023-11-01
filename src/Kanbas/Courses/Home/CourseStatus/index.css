@@ -1,4 +1,8 @@
 .btn-light-green {
     background-color: #82c190;
-    color: white;
+    /* color: white; */
+  }
+
+  .course-status-width {
+    width: 300px;
   }

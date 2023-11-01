@@ -11,14 +11,13 @@ const CourseBreadcrumb = () => {
 
   return (
     <div className="mt-3 px-4 w-full">
-      {/* <i class="solid-bars-icon fa-solid fa-bars text-danger fa-1x pt-1 pe-3" id="course-home-header-icon"></i> */}
       <nav
         className="course-breadcrumb border-bottom border-1 d-none d-md-flex justify-content-between"
         aria-label="breadcrumb"
       >
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <Link to={`${pathname.split("/")}`}>
+            <Link to={pathname}>
               <FiMenu className="me-3" />
               {courseId}
             </Link>

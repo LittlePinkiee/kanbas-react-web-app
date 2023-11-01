@@ -18,18 +18,38 @@ import CourseBreadcrumb from "./Breadcrumb";
 import MobileHomeHeader from "./mobileHomeHeader";
 import "./index.css";
 
-function Courses() {
+function Courses({ courses }) {
   const { courseId } = useParams();
+  const course = courses.find((course) => course._id === courseId);
+
   const { pathname } = useLocation();
   console.log(pathname);
   // const [empty, kanbas, courses, id, screen] = pathname.split("/");
-  const course = db.courses.find((course) => course._id === courseId);
+  // const course = db.courses.find((course) => course._id === courseId);
 
   return (
     // <div>
     <div>
-      {/* <h1>Courses {course.name} / Home</h1> */}
-      <MobileHomeHeader/>
+      <MobileHomeHeader />
+      <CourseBreadcrumb />
+      {/* <CourseNavigation /> */}
+      <div className="d-flex">
+        <CourseNavigation />
+        <div className="w-full">
+          <Routes>
+            <Route path="/" element={<Navigate to="Home" />} />
+            <Route path="Home" element={<Home />} />
+            <Route path="Modules" element={<Modules />} />
+            <Route path="Assignments" element={<Assignments />} />
+            <Route
+              path="Assignments/:assignmentId"
+              element={<AssignmentEditor />}
+            />
+            <Route path="Grades" element={<Grades />} />
+          </Routes>
+        </div>
+      </div>
+      {/* <MobileHomeHeader />
       <CourseBreadcrumb />
       <CourseNavigation />
 
@@ -49,9 +69,13 @@ function Courses() {
             path="Assignments/:assignmentId"
             element={<AssignmentEditor />}
           />
+          <Route
+            path="Assignments/editor"
+            element={<AssignmentEditor />}
+          />
           <Route path="Grades" element={<Grades />} />
         </Routes>
-      </div>
+      </div> */}
     </div>
 
     // </div>
