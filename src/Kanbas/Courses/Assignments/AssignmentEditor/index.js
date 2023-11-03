@@ -29,10 +29,10 @@ function AssignmentEditor() {
   const handleSave = () => {
     lastPath === "addAssignment"
       ? dispatch(addAssignment({ ...assignment, course: courseId }))
-      : dispatch(updateAssignment({ ...assignment, course: courseId }));
+      : dispatch(updateAssignment(assignment));
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    console.log(assignments);
   };
+
 
   const onChangeAssignment = (e) => {
     dispatch(setAssignment({ ...assignment, [e.target.name]: e.target.value }));
