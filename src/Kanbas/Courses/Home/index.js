@@ -6,13 +6,13 @@ import CourseStatus from "./CourseStatus";
 function Home() {
   return (
     <div className="d-flex gap-4 mt-3">
-      <div className="ms-4 w-full">
+      <div className="w-full">
         {/* <h2>Home</h2> */}
         {/* <MobileHomeHeader /> */}
         <ModulesHeader />
         <ModuleList />
       </div>
-      <div className="w-50">
+      <div className="w-25">
         {/* <h2>Status</h2> */}
         <CourseStatus />
       </div>

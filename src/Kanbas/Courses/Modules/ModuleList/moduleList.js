@@ -33,7 +33,7 @@ function ModuleList() {
   // };
 
   return (
-    <div class="list-group mb-4 rounded-0">
+    <div class="list-group mb-4 ms-3 rounded-0">
       <div className="d-flex flex-column pb-3 mt-3 border-bottom border-2">
         <input
           className="form-control"

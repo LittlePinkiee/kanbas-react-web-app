@@ -5,7 +5,11 @@ const initialState = {
   assignments: db.assignments,
   assignment: {
     title: "New Assignment Title",
-    course: "New Assignment Course",
+    description: "New Assignment Description",
+    availableDate: "2023-09-01",
+    dueDate: "2023-09-18", 
+    dueTime: "11:59pm", 
+    points: "100",
   },
 };
 
@@ -18,8 +22,6 @@ const assignmentsSlice = createSlice({
         { ...action.payload, _id: new Date().getTime().toString() },
         ...state.assignments,
       ];
-      console.log("123: ", action.payload);
-      console.log("234: ", state.assignments)
     },
     deleteAssignment: (state, action) => {
       state.assignments = state.assignments.filter(

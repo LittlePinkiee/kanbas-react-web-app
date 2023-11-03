@@ -4,18 +4,30 @@ import { FaEllipsisV } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaRegPenToSquare } from "react-icons/fa6";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import db from "../../Database";
 import AssignmentHeader from "./AssignmentHeader";
-import "./index.css";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+} from "./assignmentsReducer";
+import { useSelector, useDispatch } from "react-redux";
+import "../../index.css";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
+  const dispatch = useDispatch();
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments
+  );
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
+
   return (
-    <div className="list-group mb-4 rounded-0">
+    <div className="list-group m-3 rounded-0">
       <AssignmentHeader />
       <h5 className="pt-3">Assignments for course {courseId}</h5>
 
@@ -32,22 +44,30 @@ function Assignments() {
       </div>
       <div className="list-group rounded-0 left-boarder-green">
         {courseAssignments.map((assignment) => (
-          <Link
-            key={assignment._id}
-            to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-            className="list-group-item ps-2"
-          >
-            <div className="justify-content-between">
-              <FaEllipsisV className="mt-4"/><FaRegPenToSquare className="text-success mx-2 mt-4" />{assignment.title}
-              <div className="float-end mt-3">
+          <div className="list-group-item d-flex flex-row ps-2">
+              <Link
+                key={assignment._id}
+                to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                className="text-decoration-none text-black"
+              >
+                <div className="d-flex flex-row">
+                  <FaEllipsisV className="mt-4 p-0" />
+                  <FaRegPenToSquare className="text-success mx-2 mt-4" />
+                  <div className="d-flex flex-column pt-1 ms-3">
+                    {assignment.title}
+                    <p className="text-secondary m-0">{assignment.course}</p>
+                  </div>
+                </div>
+              </Link>
+              <div className="ms-auto pt-3">
                 <BsCheckCircleFill className="text-success me-2" />
-                <FaEllipsisV className="mx-2"/>
+                <FaEllipsisV className="mx-2" />
+                <RiDeleteBin5Line
+                  className="text-danger"
+                  onClick={() => dispatch(deleteAssignment(assignment._id))}
+                />
               </div>
-            </div>
-
-            <p className="text-secondary m-0 ms-5">{assignment.course}</p>
-
-          </Link>
+          </div>
         ))}
       </div>
     </div>

@@ -9,3 +9,25 @@
 .list-no-marker{
     list-style-type: none;
 }
+
+/* .bg-test{
+    background-color: blue;
+} */
+
+/* .v-ellipsis {
+    font-size: 1.5em;
+} */
+
+
+.left-boarder-green {
+    border-left: 3px solid;
+    border-left-color: green;
+}
+
+.card-width{
+    width: 24em;
+}
+
+.card-in-card-width{
+    width: 24em;
+}

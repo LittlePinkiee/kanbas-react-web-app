@@ -16,7 +16,6 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import CourseBreadcrumb from "./Breadcrumb";
 import MobileHomeHeader from "./mobileHomeHeader";
-import "./index.css";
 
 function Courses({ courses }) {
   const { courseId } = useParams();
