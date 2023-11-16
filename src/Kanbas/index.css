@@ -31,3 +31,10 @@
 .card-in-card-width{
     width: 24em;
 }
+
+/* .text-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+} */

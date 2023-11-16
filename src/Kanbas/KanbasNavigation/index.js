@@ -30,7 +30,7 @@ function KanbasNavigation() {
       >
         <ul className="list-group wd-kanbas-navigation h-full">
           <li>
-            <a href="/Kanbas/Dashboard" class="neu-logo d-flex mb-md-0">
+            <a href="/Kanbas/Dashboard" className="neu-logo d-flex mb-md-0">
               <img
                 width="80"
                 height="75"

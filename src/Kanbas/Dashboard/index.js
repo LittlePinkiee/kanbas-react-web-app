@@ -1,43 +1,16 @@
 import { React, useState } from "react";
 import db from "../Database";
 import { Link } from "react-router-dom";
+// import "../index.css";
 
-function Dashboard(
-  {
-    courses,
-    course,
-    setCourse,
-    addNewCourse,
-    deleteCourse,
-    updateCourse,
-  }
-) {
-  // const [courses, setCourses] = useState(db.courses);
-  // const [course, setCourse] = useState({
-  //   name: "New Course",
-  //   number: "New Number",
-  //   startDate: "2023-09-10",
-  //   endDate: "2023-12-15",
-  // });
-  // const addNewCourse = () => {
-  //   setCourses([...courses, { ...course, _id: new Date().getTime() }]);
-  // };
-  // const deleteCourse = (courseId) => {
-  //   setCourses(courses.filter((course) => course._id !== courseId));
-  // };
-
-  // const updateCourse = () => {
-  //   setCourses(
-  //     courses.map((c) => {
-  //       if (c._id === course._id) {
-  //         return course;
-  //       } else {
-  //         return c;
-  //       }
-  //     })
-  //   );
-  // };
-
+function Dashboard({
+  courses,
+  course,
+  setCourse,
+  addNewCourse,
+  deleteCourse,
+  updateCourse,
+}) {
   return (
     <div className="d-flex flex-column ms-4 mt-2">
       <h1 className="text-secondary m-0">Dashboard</h1>
@@ -50,6 +23,7 @@ function Dashboard(
         <div className="mb-2 pb-2 border-bottom border-2">
           <input
             value={course.name}
+            type="text"
             className="form-control mb-1"
             onChange={(e) => setCourse({ ...course, name: e.target.value })}
           />
@@ -73,31 +47,46 @@ function Dashboard(
             onChange={(e) => setCourse({ ...course, endDate: e.target.value })}
           />
 
-          <button onClick={addNewCourse} className="btn btn-success">Add</button>
+          <button onClick={addNewCourse} className="btn btn-success">
+            Add
+          </button>
 
-          <button onClick={updateCourse} className="btn btn-primary ms-2">Update</button>
+          <button
+            onClick={() => updateCourse(course)}
+            className="btn btn-primary ms-2"
+          >
+            Update
+          </button>
         </div>
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
           {courses.map((course, index) => (
             <Link
               key={course._id}
               to={`/Kanbas/Courses/${course._id}`}
               className="btn btn-white"
             >
-              <div class="card">
-                <img src="/images/react.png" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{course.name}</h5>
-                  {course.name}
-                  <p class="card-text">
+              <div className="card">
+                <img
+                  src="/images/react.png"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-start">
+                  <h5 className="card-title text-truncate"  style={{"max-width": "150px"}}>{course.name}</h5>
+                  {/* {course.name} */}
+                  <p className="card-text">
                     This is a longer card with supporting text below as a
                     natural lead-in to additional content. This content is a
                     little bit longer.
                   </p>
+                  <p className="text-secondary">
+                    {course.startDate} to {course.endDate}
+                  </p>
                 </div>
               </div>
-              <button className="btn btn-warning"
+              <button
+                className="btn btn-warning"
                 onClick={(event) => {
                   event.preventDefault();
                   setCourse(course);
@@ -106,10 +95,11 @@ function Dashboard(
                 Edit
               </button>
 
-              <button className="btn btn-danger ms-2"
+              <button
+                className="btn btn-danger ms-2"
                 onClick={(event) => {
                   event.preventDefault();
-                  deleteCourse(course._id);
+                  deleteCourse(course);
                 }}
               >
                 Delete

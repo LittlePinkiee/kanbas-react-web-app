@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   BsCheckCircleFill,
@@ -9,7 +9,9 @@ import { FaEllipsisV } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import db from "../../../Database";
 import { useSelector, useDispatch } from "react-redux";
+import { findModulesForCourse, createModule} from "../client";
 import {
+  setModules,
   addModule,
   deleteModule,
   updateModule,
@@ -19,6 +21,14 @@ import "../../../index.css";
 
 function ModuleList() {
   const { courseId } = useParams();
+
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
