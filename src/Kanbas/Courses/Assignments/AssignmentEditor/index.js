@@ -9,7 +9,7 @@ import {
   updateAssignment,
   setAssignment,
 } from "../assignmentsReducer";
-import { createAssignment } from "../client.js";
+import * as client from "../client.js";
 import "../../../index.css";
 
 function AssignmentEditor() {
@@ -18,24 +18,40 @@ function AssignmentEditor() {
   const lastPath = pathSplit[pathSplit.length - 1];
 
   const { courseId } = useParams();
-  // const { assignmentId } = useParams();
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
 
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   console.log("assignment", assignment);
+  const handleAddAssignment = () => {
+    client.createAssignment(courseId, assignment).then((assignment) => {
+      dispatch(addAssignment({ ...assignment, course: courseId }));
+    });
+  };
+
+  const handleDeleteAssignment = (assignmentId) => {
+    client.deleteAssignment(assignmentId).then((status) => {
+      dispatch(deleteAssignment(assignmentId));
+    });
+  };
+
+  const handleUpdateAssignment = async () => {
+    const status = await client.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSave = async () => {
-
     const changedAss = { ...assignment, course: courseId };
     lastPath === "addAssignment"
-      ? dispatch(addAssignment(changedAss))
-      : dispatch(updateAssignment(changedAss));
+    ? handleAddAssignment()
+    : handleUpdateAssignment();
 
+    //   ? dispatch(addAssignment(changedAss))
+    //   : dispatch(updateAssignment(changedAss));
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 

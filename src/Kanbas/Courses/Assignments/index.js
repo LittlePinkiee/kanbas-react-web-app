@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
@@ -12,26 +12,41 @@ import {
   deleteAssignment,
   updateAssignment,
   setAssignment,
+  setAssignments,
 } from "./assignmentsReducer";
+import * as client from "./client";
 import { useSelector, useDispatch } from "react-redux";
 import "../../index.css";
 
 function Assignments() {
   const { courseId } = useParams();
+
+  useEffect(() => {
+    client.findAssignmentsForCourse(courseId)
+      .then((assignments) =>
+        dispatch(setAssignments(assignments))
+    );
+  }, [courseId]);
+
   const dispatch = useDispatch();
+  // const handleAddAssignment = () => {
+  //   client.createAssignment(courseId, assignment).then((assignment) => {
+  //     dispatch(addAssignment({ ...assignment, course: courseId }));
+  //   });
+  // };
+
+  const handleDeleteAssignment = (assignmentId) => {
+    client.deleteAssignment(assignmentId).then((status) => {
+      dispatch(deleteAssignment(assignmentId));
+    });
+  };
+
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
-  // const [courseAssignments, setCourseAssignments] = useState([]);
-
-  // Method
-  // call backend get assignments for course api
-  // setCourseAssignments(res.data);
-
-  // useEffect: Method
 
   return (
     <div className="list-group m-3 rounded-0">
@@ -68,7 +83,6 @@ function Assignments() {
                     {assignment.dueDate} at {assignment.dueTime}
                   </p>
                   <p className="text-secondary m-0">
-                    {" "}
                     Points: {assignment.points}
                   </p>
                 </div>
@@ -79,7 +93,7 @@ function Assignments() {
               <FaEllipsisV className="mx-2" />
               <RiDeleteBin5Line
                 className="text-danger"
-                onClick={() => dispatch(deleteAssignment(assignment._id))}
+                onClick={() => handleDeleteAssignment(assignment._id)}
               />
             </div>
           </div>

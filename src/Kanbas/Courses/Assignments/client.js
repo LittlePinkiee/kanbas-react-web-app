@@ -1,37 +1,26 @@
 import axios from "axios";
 const COURSES_URL = "http://localhost:4000/api/courses";
-const ASSIGNMENT_URL = "http://localhost:4000/api/assignments";
+const ASSIGNMENTS_URL = "http://localhost:4000/api/assignments";
 
-export const createAssignment = async (cid, assignment) => {
+export const updateAssignment  = async (assignment ) => {
+  const response = await axios.
+    put(`${ASSIGNMENTS_URL}/${assignment._id}`, assignment);
+  return response.data;
+};
+
+export const deleteAssignment = async (assignmentId) => {
+  const response = await axios
+    .delete(`${ASSIGNMENTS_URL}/${assignmentId}`);
+  return response.data;
+};
+
+export const createAssignment = async (courseId, assignment) => {
   const response = await axios.post(
-    `${COURSES_URL}/${cid}/assignment`,
+    `${COURSES_URL}/${courseId}/assignments`,
     assignment
   );
   return response.data;
 }
-
-// get all assignments for a course
-
-// export const updateModule = async (module) => {
-//   const response = await axios.
-//     put(`${MODULES_URL}/${module._id}`, module);
-//   return response.data;
-// };
-
-// export const deleteModule = async (moduleId) => {
-//   const response = await axios
-//     .delete(`${MODULES_URL}/${moduleId}`);
-//     console.log("response", response.data)
-//   return response.data;
-// };
-
-// export const createModule = async (courseId, module) => {
-//   const response = await axios.post(
-//     `${COURSES_URL}/${courseId}/modules`,
-//     module
-//   );
-//   return response.data;
-// };
 
 export const findAssignmentsForCourse = async (courseId) => {
   const response = await axios
