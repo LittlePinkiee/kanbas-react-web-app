@@ -54,7 +54,6 @@ function Kanbas() {
       );
     } catch (error) {
       // console.log("error", error);
-      // how to get the error message from the server?
       console.log("error", error.response.data);
     }
   };

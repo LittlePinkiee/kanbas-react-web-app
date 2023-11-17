@@ -9,13 +9,13 @@ import { FaEllipsisV } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import db from "../../../Database";
 import { useSelector, useDispatch } from "react-redux";
-import { findModulesForCourse, createModule} from "../client";
+import * as client from "../client";
 import {
-  setModules,
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./../modulesReducer";
 import "../../../index.css";
 
@@ -23,7 +23,7 @@ function ModuleList() {
   const { courseId } = useParams();
 
   useEffect(() => {
-    findModulesForCourse(courseId)
+    client.findModulesForCourse(courseId)
       .then((modules) =>
         dispatch(setModules(modules))
     );
@@ -32,6 +32,24 @@ function ModuleList() {
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
   const [isCollapsed, setIsCollapsed] = useState(false);
   // const [isModuleCollapsed, setIsModuleCollapsed] = useState(true);
 
@@ -63,13 +81,13 @@ function ModuleList() {
 
         <div className="d-flex flex-row mt-2">
           <button
-            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+            onClick={() => handleAddModule()}
             className="btn btn-success"
           >
             Add
           </button>
           <button
-            onClick={() => dispatch(updateModule(module))}
+            onClick={() => handleUpdateModule()}
             className="btn btn-primary ms-2"
           >
             Update
@@ -123,7 +141,7 @@ function ModuleList() {
 
                     <button
                       className="btn btn-danger mx-2"
-                      onClick={() => dispatch(deleteModule(module._id))}
+                      onClick={() => handleDeleteModule(module._id)}
                     >
                       Delete
                     </button>

@@ -28,8 +28,8 @@ function CourseNavigation() {
   const { courseId } = useParams();
   const { pathname } = useLocation();
   return (
-    <div class="wd-course-navigation list-group pt-2 d-flex d-none d-md-block" id="course-navbar">
-      <span class="text-ellipsis text-secondary d-none d-md-block ps-4 pt-2" id="courses-sidebar-title">
+    <div className="wd-course-navigation list-group pt-2 d-flex d-none d-md-block" id="course-navbar">
+      <span className="text-ellipsis text-secondary d-none d-md-block ps-4 pt-2" id="courses-sidebar-title">
         202410_1 Fall 2023 Semester
       </span>
       {links.map((link, index) => (
