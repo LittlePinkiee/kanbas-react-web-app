@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
@@ -25,6 +25,13 @@ function Assignments() {
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
+  // const [courseAssignments, setCourseAssignments] = useState([]);
+
+  // Method
+  // call backend get assignments for course api
+  // setCourseAssignments(res.data);
+
+  // useEffect: Method
 
   return (
     <div className="list-group m-3 rounded-0">
@@ -45,28 +52,36 @@ function Assignments() {
       <div className="list-group rounded-0 left-boarder-green">
         {courseAssignments.map((assignment) => (
           <div className="list-group-item d-flex flex-row ps-2">
-              <Link
-                key={assignment._id}
-                to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-                className="text-decoration-none text-black"
-              >
-                <div className="d-flex flex-row">
-                  <FaEllipsisV className="mt-4 p-0" />
-                  <FaRegPenToSquare className="text-success mx-2 mt-4" />
-                  <div className="d-flex flex-column pt-1 ms-3">
-                    {assignment.title}
-                    <p className="text-secondary m-0">{assignment.course}</p>
-                  </div>
+            <Link
+              key={assignment._id}
+              onClick={() => dispatch(setAssignment(assignment))}
+              to={`/Kanbas/Courses/${courseId}/Assignments/editAssignment`}
+              className="text-decoration-none text-black"
+            >
+              <div className="d-flex flex-row">
+                <FaEllipsisV className="mt-4 p-0" />
+                <FaRegPenToSquare className="text-success mx-2 mt-4" />
+                <div className="d-flex flex-column pt-1 ms-3">
+                  {assignment.title}
+                  <p className="text-secondary m-0">
+                    Available: {assignment.startDate} -- Due:{" "}
+                    {assignment.dueDate} at {assignment.dueTime}
+                  </p>
+                  <p className="text-secondary m-0">
+                    {" "}
+                    Points: {assignment.points}
+                  </p>
                 </div>
-              </Link>
-              <div className="ms-auto pt-3">
-                <BsCheckCircleFill className="text-success me-2" />
-                <FaEllipsisV className="mx-2" />
-                <RiDeleteBin5Line
-                  className="text-danger"
-                  onClick={() => dispatch(deleteAssignment(assignment._id))}
-                />
               </div>
+            </Link>
+            <div className="ms-auto pt-3">
+              <BsCheckCircleFill className="text-success me-2" />
+              <FaEllipsisV className="mx-2" />
+              <RiDeleteBin5Line
+                className="text-danger"
+                onClick={() => dispatch(deleteAssignment(assignment._id))}
+              />
+            </div>
           </div>
         ))}
       </div>

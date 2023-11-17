@@ -36,7 +36,6 @@ function Courses() {
   // const course = courses.find((course) => course._id === courseId);
 
   const { pathname } = useLocation();
-  console.log(pathname);
   // const [empty, kanbas, courses, id, screen] = pathname.split("/");
   // const course = db.courses.find((course) => course._id === courseId);
 
@@ -55,7 +54,11 @@ function Courses() {
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route
-              path="Assignments/:assignmentId"
+              path="Assignments/editAssignment"
+              element={<AssignmentEditor />}
+            />
+            <Route
+              path="Assignments/addAssignment"
               element={<AssignmentEditor />}
             />
             <Route path="Grades" element={<Grades />} />

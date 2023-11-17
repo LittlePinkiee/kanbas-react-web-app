@@ -6,7 +6,6 @@ import "./index.css";
 const CourseBreadcrumb = () => {
   const { courseId } = useParams();
   const { pathname } = useLocation();
-  console.log(pathname);
   const [empty, kanbas, courses, _id, screen] = pathname.split("/");
 
   return (

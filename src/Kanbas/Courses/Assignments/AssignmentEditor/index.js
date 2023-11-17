@@ -9,6 +9,7 @@ import {
   updateAssignment,
   setAssignment,
 } from "../assignmentsReducer";
+import { createAssignment } from "../client.js";
 import "../../../index.css";
 
 function AssignmentEditor() {
@@ -17,25 +18,31 @@ function AssignmentEditor() {
   const lastPath = pathSplit[pathSplit.length - 1];
 
   const { courseId } = useParams();
-  const { assignmentId } = useParams();
-  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  // const { assignmentId } = useParams();
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments
+  );
+
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
-  // const assignment = assignments.find(
-  //   (assignment) => assignment._id === assignmentId
-  // );
+  console.log("assignment", assignment);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSave = () => {
+  const handleSave = async () => {
+
+    const changedAss = { ...assignment, course: courseId };
     lastPath === "addAssignment"
-      ? dispatch(addAssignment({ ...assignment, course: courseId }))
-      : dispatch(updateAssignment(assignment));
+      ? dispatch(addAssignment(changedAss))
+      : dispatch(updateAssignment(changedAss));
+
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
-
   const onChangeAssignment = (e) => {
-    dispatch(setAssignment({ ...assignment, [e.target.name]: e.target.value }));
+    dispatch(
+      setAssignment({ ...assignment, [e.target.name]: e.target.value })
+    );
   };
 
   return (
@@ -45,12 +52,11 @@ function AssignmentEditor() {
         <label for="inputAssignmentName" class="form-label ms-1">
           Assignment Name
         </label>
-        <input className="form-control mb-4"
+        <input
+          className="form-control mb-4"
           type="text"
           id="inputAssignmentName"
           value={assignment.title}
-          // defaultValue={lastPath === "addAssignment" ? "" : assignment.title}
-          // placeholder={lastPath === "addAssignment" ? assignment.title : ""}
           name="title"
           onChange={(e) => onChangeAssignment(e)}
         />
@@ -63,7 +69,7 @@ function AssignmentEditor() {
           rows="3"
           onChange={(e) => onChangeAssignment(e)}
         >
-          {/* This is the assignment description. */}
+          This is the assignment description.
         </textarea>
       </div>
 
@@ -80,11 +86,7 @@ function AssignmentEditor() {
                   id="inputPoints"
                   name="points"
                   class="form-control"
-                  defaultValue={
-                    lastPath === "addAssignment"
-                      ? assignment.points
-                      : assignment.points
-                  }
+                  value={assignment.points}
                   onChange={(e) => onChangeAssignment(e)}
                 />
               </td>

@@ -30,7 +30,6 @@ function Kanbas() {
   }, []);
 
   const addNewCourse = async () => {
-    console.log("course", course);
     const response = await axios.post(URL, course);
     setCourses([response.data, ...courses]);
   };
@@ -53,7 +52,6 @@ function Kanbas() {
         })
       );
     } catch (error) {
-      // console.log("error", error);
       console.log("error", error.response.data);
     }
   };
