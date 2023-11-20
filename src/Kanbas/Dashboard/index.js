@@ -73,7 +73,7 @@ function Dashboard({
                   alt="..."
                 />
                 <div className="card-body text-start">
-                  <h5 className="card-title text-truncate"  style={{"max-width": "150px"}}>{course.name}</h5>
+                  <h5 className="card-title text-truncate"  style={{"max-width": "200px"}}>{course.name}</h5>
                   {/* {course.name} */}
                   <p className="card-text">
                     This is a longer card with supporting text below as a

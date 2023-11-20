@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const LAB_URL = `https://kanbas-node-server-app-ugzg.onrender.com/a5`;
 
 function WorkingWithArrays() {
+
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState({
     id: 1,
@@ -10,7 +12,7 @@ function WorkingWithArrays() {
     due: "2021-09-09",
     completed: false,
   });
-  const API = "http://localhost:4000/a5/todos";
+  const API = `${LAB_URL}/todos`;
 
   const [errorMessage, setErrorMessage] = useState(null);
 
