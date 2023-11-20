@@ -22,7 +22,7 @@ function Courses() {
   // const URL = "http://localhost:4000/api/courses";
   const API_BASE = process.env.REACT_APP_API_BASE;
   const URL = `${API_BASE}/courses`;
-  
+
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
@@ -35,8 +35,6 @@ function Courses() {
   useEffect(() => {
     findCourseById(courseId);
   }, [courseId]);
-
-  // const course = courses.find((course) => course._id === courseId);
 
   const { pathname } = useLocation();
   // const [empty, kanbas, courses, id, screen] = pathname.split("/");
