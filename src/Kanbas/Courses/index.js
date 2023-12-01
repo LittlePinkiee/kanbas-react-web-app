@@ -20,8 +20,8 @@ import MobileHomeHeader from "./mobileHomeHeader";
 
 function Courses() {
   // const URL = "http://localhost:4000/api/courses";
-  const API_BASE = process.env.REACT_APP_API_BASE;
-  const URL = `${API_BASE}/courses`;
+  const API_BASE = process.env.REACT_APP_BASE_API_URL;
+  const URL = `${API_BASE}/api/courses`;
 
   const { courseId } = useParams();
   const [course, setCourse] = useState({});

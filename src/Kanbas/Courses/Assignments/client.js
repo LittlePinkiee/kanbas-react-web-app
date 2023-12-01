@@ -1,7 +1,7 @@
 import axios from "axios";
-const API_BASE = process.env.REACT_APP_API_BASE;
-const COURSES_URL = `${API_BASE}/courses`;
-const ASSIGNMENTS_URL = `${API_BASE}/assignments`;
+const API_BASE = process.env.REACT_APP_BASE_API_URL;
+const COURSES_URL = `${API_BASE}/api/courses`;
+const ASSIGNMENTS_URL = `${API_BASE}/api/assignments`;
 // const COURSES_URL = "http://localhost:4000/api/courses";
 // const ASSIGNMENTS_URL = "http://localhost:4000/api/assignments";
 
