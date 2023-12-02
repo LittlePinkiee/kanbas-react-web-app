@@ -20,7 +20,8 @@ import MobileHomeHeader from "./mobileHomeHeader";
 
 function Courses() {
   // const URL = "http://localhost:4000/api/courses";
-  const API_BASE = process.env.REACT_APP_BASE_API_URL;
+  const API_BASE = "https://kanbas-node-server-app-a6-au3u.onrender.com";
+  // const API_BASE = process.env.REACT_APP_BASE_API_URL;
   const URL = `${API_BASE}/api/courses`;
 
   const { courseId } = useParams();

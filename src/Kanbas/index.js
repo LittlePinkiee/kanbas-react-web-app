@@ -20,7 +20,8 @@ function Kanbas() {
     endDate: "2023-12-15",
   });
 
-  const API_BASE = process.env.REACT_APP_BASE_API_URL;
+  // const API_BASE = process.env.REACT_APP_BASE_API_URL;
+  const API_BASE = "https://kanbas-node-server-app-a6-au3u.onrender.com";
   const URL = `${API_BASE}/api/courses`;
   // const URL = "http://localhost:4000/api/courses";
   const findAllCourses = async () => {
